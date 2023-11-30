@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -53,6 +54,8 @@ public class FragmentLista extends Fragment {
                 // Realiza lo que deseas, al recibir clic en el elemento de tu listView determinado por su posicion.
 //                Log.i("Click", "click en el elemento " + position + " de mi ListView");
                 if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+                    FrameLayout fr= requireActivity().findViewById(R.id.frame2);
+                    fr.setVisibility(View.GONE);
                     if (position == 0) {
                         requireActivity().getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.frame1, new FragmentFutbol())
@@ -78,6 +81,8 @@ public class FragmentLista extends Fragment {
                                 .commit();
                     }
                 } else {
+                    FrameLayout fr= requireActivity().findViewById(R.id.frame2);
+                    fr.setVisibility(View.VISIBLE);
                     if (position == 0) {
                         requireActivity().getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.frame2, new FragmentFutbol())
